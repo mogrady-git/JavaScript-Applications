@@ -152,6 +152,10 @@ function showResultBox() {
     info_box.classList.remove("activeInfo"); //hide the info box
     quiz_box.classList.remove("activeQuiz"); //hide the quiz box
     result_box.classList.add("activeResult"); //show the quiz box
+    const scoreText = result_box.querySelector(".score_text");
+    if (userScore > 3) {
+        let scoreTag = '<span>Sorry, you got only <p>' + userScore + '</p> out of <p>' + questions.length + '</p></span>';
+    }
 };
 
 
