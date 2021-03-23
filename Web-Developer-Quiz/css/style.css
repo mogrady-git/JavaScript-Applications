@@ -25,7 +25,8 @@ body {
 }
 
 .info_box.activeInfo,
-.quiz_box.activeQuiz {
+.quiz_box.activeQuiz,
+.result_box.activeResult {
     z-index: 5;
     opacity: 1;
     pointer-events: auto;
@@ -38,7 +39,7 @@ body {
 .start_btn button {
     font-size: 25px;
     font-weight: 500;
-    color: #007bff;
+    color: #18d26e;
     padding: 15px 30px;
     outline: none;
     border: none;
@@ -49,6 +50,7 @@ body {
 .start_btn button:hover {
     transform: scale(2);
     cursor: pointer;
+    color: #007bff;
 }
 
 .info_box {
