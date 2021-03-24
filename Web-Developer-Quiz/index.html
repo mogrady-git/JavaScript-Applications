@@ -12,67 +12,70 @@
 </head>
 
 <body>
-    <!-- Start Quiz Button -->
-    <div class="start_btn"><button>Start Quiz</button></div>
+    <div class="container">
+        <!-- Start Quiz Button -->
+        <div class="start_btn"><button>Start Quiz</button></div>
 
-    <!-- Info Box -->
+        <!-- Info Box -->
 
-    <div class="info_box">
-        <div class="info_title">
-            <span>Rules of the Web Developer Quiz</span>
-        </div>
-        <div class="info_list">
-            <div class="info">1. There are <span>20 multiple choice questions</span>.</div>
-            <div class="info">2. You have just <span>15 seconds</span> per question.</div>
-            <div class="info">3. Once you select your answer, it can't be undone.</div>
-            <div class="info">4. You can't select any option once time goes off.</div>
-            <div class="info">5. You can't exit from the Quiz while you're playing.</div>
-            <div class="info">6. You'll get points on the basis of your correct answers.</div>
-        </div>
-        <div class="buttons">
-            <button class="quit">Exit Quiz</button>
-            <button class="restart">Continue</button>
-        </div>
-    </div>
-    <!-- Quiz Box -->
-    <div class="quiz_box">
-        <header>
-            <div class="title">Web Developer Quiz</div>
-            <div class="timer">
-                <div class="time_text">Time Left</div>
-                <div class="timer_sec">15</div>
+        <div class="info_box">
+            <div class="info_title">
+                <span>Rules of the Web Developer Quiz</span>
             </div>
-            <div class="time_line"></div>
-        </header>
-        <section>
-            <div class="que_text">
-                <!-- Question dynamically pushed in here with JavaScript -->
+            <div class="info_list">
+                <div class="info">1. There are <span>20 multiple choice questions</span>.</div>
+                <div class="info">2. You have just <span>15 seconds</span> per question.</div>
+                <div class="info">3. Once you select your answer, it can't be undone.</div>
+                <div class="info">4. You can't select any option once time goes off.</div>
+                <div class="info">5. You can't exit from the Quiz while you're playing.</div>
+                <div class="info">6. You'll get points on the basis of your correct answers.</div>
             </div>
-            <div class="option_list">
-                <!-- Options dynamically pushed in here with JavaScript -->
+            <div class="buttons">
+                <button class="quit">Exit Quiz</button>
+                <button class="restart">Continue</button>
             </div>
-        </section>
-        <!-- Quiz Box Footer -->
-        <footer>
-            <div class="total_que">
-                <!-- Question Que dynamically pushed in here with JavaScript -->
+        </div>
+        <!-- Quiz Box -->
+        <div class="quiz_box">
+            <header>
+                <div class="title">Web Developer Quiz</div>
+                <div class="timer">
+                    <div class="time_text">Time Left</div>
+                    <div class="timer_sec">15</div>
+                </div>
+                <div class="time_line"></div>
+            </header>
+            <section>
+                <div class="que_text">
+                    <!-- Question dynamically pushed in here with JavaScript -->
+                </div>
+                <div class="option_list">
+                    <!-- Options dynamically pushed in here with JavaScript -->
+                </div>
+            </section>
+            <!-- Quiz Box Footer -->
+            <footer>
+                <div class="total_que">
+                    <!-- Question Que dynamically pushed in here with JavaScript -->
+                </div>
+                <button class="next_btn">Next Question</button>
+            </footer>
+        </div>
+        <!-- Result Box -->
+        <div class="result_box">
+            <div class="icon">
+                <i class="fas fa-crown"></i>
             </div>
-            <button class="next_btn">Next Question</button>
-        </footer>
-    </div>
-    <!-- Result Box -->
-    <div class="result_box">
-        <div class="icon">
-            <i class="fas fa-crown"></i>
+            <div class="complete_text">You've Completed the Quiz!<br>Results..</div>
+            <div class="score_text">
+                <!-- <span>Sorry, you got only <p>2</p> out of <p>5</p></span> -->
+            </div>
+            <div class="buttons">
+                <button class="restart">Replay Quiz</button>
+                <button class="quit">Quit Quiz</button>
+            </div>
         </div>
-        <div class="complete_text">You've Completed the Quiz!<br>Results..</div>
-        <div class="score_text">
-            <!-- <span>Sorry, you got only <p>2</p> out of <p>5</p></span> -->
-        </div>
-        <div class="buttons">
-            <button class="restart">Replay Quiz</button>
-            <button class="quit">Quit Quiz</button>
-        </div>
+
     </div>
     <script src="js/main.js"></script>
     <script src="js/questions.js"></script>
