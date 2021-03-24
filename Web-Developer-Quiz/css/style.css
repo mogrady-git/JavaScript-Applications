@@ -153,6 +153,7 @@ body {
     box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.1);
     pointer-events: none;
     user-select: none;
+    text-align: center;
 }
 
 .quiz_box header .title {
@@ -164,7 +165,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 145px;
+    width: 155px;
     height: 45px;
     background: #cce5ff;
     border: 1px solid #b8daff;
@@ -175,6 +176,7 @@ body {
 .quiz_box header .timer .time_text {
     font-weight: 400;
     font-size: 17px;
+    padding-right: 3px;
     /* user-select: none; */
 }
 
@@ -377,4 +379,68 @@ footer .next_btn:hover {
     border: 1px solid #007bff;
     cursor: pointer;
     transition: all 0.3s ease;
+}
+
+@media only screen and (max-width: 560px) {
+    body {
+        scale: .8;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    /* .start_btn {
+        scale: 1.5;
+        margin-left: 2rem;
+    } */
+}
+
+@media only screen and (max-width: 435px) {
+    body {
+        scale: .7;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    /* .start_btn {
+        scale: 1.5;
+        margin-left: 2rem;
+    } */
+}
+
+@media only screen and (max-width: 391px) {
+    body {
+        scale: .5;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    /* .start_btn {
+        scale: 1.5;
+        margin-left: 2rem;
+    } */
+}
+
+@media (orientation: landscape) and (max-width: 1005px) {
+    body {
+        background-color: red;
+        height: 100px;
+    }
+    .info_box,
+    .quiz_box,
+    .result_box {
+        scale: .65;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        margin: -50px;
+        margin-top: -100px;
+    }
+    .start_btn {
+        z-index: -0;
+    }
 }

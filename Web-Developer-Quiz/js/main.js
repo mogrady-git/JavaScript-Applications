@@ -10,6 +10,8 @@ const option_list = document.querySelector(".option_list");
 const timeCount = quiz_box.querySelector(".timer .timer_sec");
 //
 const timeLine = quiz_box.querySelector("header .time_line");
+// 
+const timeOff = quiz_box.querySelector("header .time_text");
 
 
 
@@ -49,6 +51,8 @@ let que_numb = 1; //initializing starting question number value
 // 
 let counter; //initializing counter initial value
 // 
+let counterLine; //initializing counter initial value
+// 
 let timeValue = 15; //time limit value in seconds
 // 
 let widthValue = 0; //starting value at 0px for the progress indicator line
@@ -62,6 +66,34 @@ const result_box = document.querySelector(".result_box");
 // 
 const restart_quiz = result_box.querySelector(".buttons .restart");
 const quit_quiz = result_box.querySelector(".buttons .quit");
+
+
+// if restartQuiz button clicked
+restart_quiz.onclick = () => {
+    console.log("Quiz Restarting...");
+    result_box.classList.remove("activeResult");
+    quiz_box.classList.add("activeQuiz");
+    timeValue = 15;
+    que_count = 0;
+    que_numb = 1;
+    userScore = 0;
+    widthValue = 0;
+    // 
+    showQuestions(que_count); //calling showQuestions function
+    queCounter(que_numb); //passing que_numb value to queCounter
+    clearInterval(counter); //clear counter
+    startTimer(timeValue); //clear counterLine
+    clearInterval(counterLine); //clear counterLine
+    startTimerLine(widthValue); //calling startTimerLine function
+    next_btn.style.display = "none";
+    timeOff.textContent = "Time Left";
+}
+
+
+// if quitQuiz button clicked
+quit_quiz.onclick = () => {
+    window.location.reload(); //reload the current window
+}
 
 
 //if next button is clicked.. move array to next question and answers
@@ -80,9 +112,13 @@ next_btn.onclick = () => {
         startTimerLine(widthValue); //calling startTimerLine function
         // 
         next_btn.style.display = "none";
+        // 
+        timeOff.textContent = "Time Left";
     } else {
         console.log("Questions completed...");
-        showResultBox(); //calling showResult function
+        showResultBox();
+        clearInterval(counter);
+        clearInterval(counterLine);
     }
 }
 
@@ -112,6 +148,8 @@ let tickIcon = '<div class="icon tick"><i class="fas fa-check"></i></div>';
 let crossIcon = '<div class="icon cross"><i class="fas fa-times"></i></div>';
 
 function optionSelected(answer) {
+    clearInterval(counter);
+    clearInterval(counterLine);
     let userAns = answer.textContent; //getting user selected option
     let correctAns = questions[que_count].answer; //answer is defined in the array /get correct answer from array
     // 
@@ -153,8 +191,19 @@ function showResultBox() {
     quiz_box.classList.remove("activeQuiz"); //hide the quiz box
     result_box.classList.add("activeResult"); //show the quiz box
     const scoreText = result_box.querySelector(".score_text");
-    if (userScore > 3) {
-        let scoreTag = '<span>Sorry, you got only <p>' + userScore + '</p> out of <p>' + questions.length + '</p></span>';
+    if (userScore >= 10) { // if user scored 10 and got all the answers
+        //creating a new span tag and passing the user score number and total question number
+        let scoreTag = '<span>Excellent! 🎉, You got <p>' + userScore + '</p> out of <p>' + questions.length + '</p></span>';
+        scoreText.innerHTML = scoreTag; //adding new span tag inside score_Text
+    } else if (userScore >= 7 && userScore <= 9) { // if user scored between 7 and 9
+        let scoreTag = '<span>Very good! 😃, You got <p>' + userScore + '</p> out of <p>' + questions.length + '</p></span>';
+        scoreText.innerHTML = scoreTag;
+    } else if (userScore >= 5 && userScore <= 6) { // if user scored between 5 and 6
+        let scoreTag = '<span>Not too bad 😎, You got <p>' + userScore + '</p> out of <p>' + questions.length + '</p></span>';
+        scoreText.innerHTML = scoreTag;
+    } else { // if user scored 4 or less
+        let scoreTag = '<span>Sorry 😐, You got only <p>' + userScore + '</p> out of <p>' + questions.length + '</p></span>';
+        scoreText.innerHTML = scoreTag;
     }
 };
 
@@ -169,9 +218,25 @@ function startTimer(time) {
             let addZero = timeCount.textContent;
             timeCount.textContent = "0" + addZero; //add a 0 before time value
         }
-        if (time < 0) { //if timer is less than 0
+        if (time < 0) { //if timer is less than 0, the correct answer will be shown on screen
             clearInterval(counter); //clear counter
             timeCount.textContent = "00"
+            timeOff.textContent = "Time Out!";
+
+            let correctAns = questions[que_count].answer;
+            let allOptions = option_list.children.length;
+
+            for (let i = 0; i < allOptions; i++) {
+                if (option_list.children[i].textContent == correctAns) {
+                    option_list.children[i].setAttribute("class", "option correct"); //adding green color to matched option
+                    option_list.children[i].insertAdjacentHTML("beforeend", tickIcon); //adding tick icon to matched option
+                }
+            }
+            for (let i = 0; i < allOptions; i++) {
+                option_list.children[i].classList.add("disabled"); //once user select an option then disabled all options
+
+            }
+            next_btn.style.display = "block";
         }
     }
 };
@@ -190,6 +255,7 @@ function startTimerLine(time) {
     function timer() {
         time += 1; //upgrading time value with 1
         timeLine.style.width = time + "px"; //increasing width of time_line with px by time value
+
         if (time > 549) { //if time value is greater than 549
             clearInterval(counterLine); //clear counterLine
         }
