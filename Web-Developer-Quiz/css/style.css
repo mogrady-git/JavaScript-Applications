@@ -17,7 +17,7 @@ body {
 .result_box.activeResult {
     max-width: 100vw;
     max-height: 100vh;
-    overflow: hidden!important;
+    overflow-x: hidden!important;
 }
 
 .start_btn,
@@ -209,7 +209,7 @@ body {
     height: 3px;
     /* width: 50%; */
     background: #007bff;
-    overflow: hidden!important;
+    overflow-x: hidden!important;
 }
 
 .quiz_box section {
