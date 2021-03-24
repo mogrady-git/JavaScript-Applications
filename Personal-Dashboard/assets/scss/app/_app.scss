@@ -67,7 +67,7 @@
     .stats-type {
         font-size: 0.875rem;
         color: $theme-text-color-light;
-        text-transform: uppercase;
+        text-transform: capitalize;
     }
     .stats-figure {
         font-size: 2rem;
