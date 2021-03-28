@@ -24,28 +24,81 @@
         </div>
         <div id="ide-container">
             <div class="panel-wrapper">
-                <div id="html">
-                    &lt;!--predefined html, but editable--&gt; &lt;div id="London" class="tabcontent"&gt; &lt;h1&gt;London&lt;/h1&gt; &lt;p&gt;London is the capital city of England.&lt;/p&gt; &lt;/div&gt; &lt;div id="Paris" class="tabcontent"&gt; &lt;h1&gt;Paris&lt;/h1&gt;
-                    &lt;p&gt;Paris is the capital of France.&lt;/p&gt; &lt;/div&gt; &lt;div id="Tokyo" class="tabcontent"&gt; &lt;h1&gt;Tokyo&lt;/h1&gt; &lt;p&gt;Tokyo is the capital of Japan.&lt;/p&gt; &lt;/div&gt; &lt;div id="Oslo" class="tabcontent"&gt;
-                    &lt;h1&gt;Oslo&lt;/h1&gt; &lt;p&gt;Oslo is the capital of Norway.&lt;/p&gt; &lt;/div&gt; &lt;button class="tablink" onclick="openCity('London', this, 'red')" id="defaultOpen"&gt;London&lt;/button&gt; &lt;button class="tablink" onclick="openCity('Paris',
-                    this, 'green')"&gt;Paris&lt;/button&gt; &lt;button class="tablink" onclick="openCity('Tokyo', this, 'blue')"&gt;Tokyo&lt;/button&gt; &lt;button class="tablink" onclick="openCity('Oslo', this, 'orange')"&gt;Oslo&lt;/button&gt;
+                <div id="html">&lt;!--predefined html, but editable--&gt; 
+&lt;p&gt;Click on the buttons inside the tabbed menu:&lt;/p&gt;
+&lt;div id="London" class="tabcontent"&gt;
+  &lt;h1&gt;London&lt;/h1&gt;
+  &lt;p&gt;London is the capital city of England.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="Paris" class="tabcontent"&gt;
+  &lt;h1&gt;Paris&lt;/h1&gt;
+  &lt;p&gt;Paris is the capital of France.&lt;/p&gt; 
+&lt;/div&gt;
+&lt;div id="Tokyo" class="tabcontent"&gt;
+  &lt;h1&gt;Tokyo&lt;/h1&gt;
+  &lt;p&gt;Tokyo is the capital of Japan.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="Oslo" class="tabcontent"&gt;
+  &lt;h1&gt;Oslo&lt;/h1&gt;
+  &lt;p&gt;Oslo is the capital of Norway.&lt;/p&gt;
+&lt;/div&gt;
+&lt;button class="tablink" onclick="openCity('London', this, 'red')" id="defaultOpen"&gt;London&lt;/button&gt;
+&lt;button class="tablink" onclick="openCity('Paris', this, 'green')"&gt;Paris&lt;/button&gt;
+&lt;button class="tablink" onclick="openCity('Tokyo', this, 'blue')"&gt;Tokyo&lt;/button&gt;
+&lt;button class="tablink" onclick="openCity('Oslo', this, 'orange')"&gt;Oslo&lt;/button&gt;
+                </div>
+            </div>
+            <div class="panel-wrapper">
+                <div id="css">/*predefined CSS, but editable*/ 
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
 
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 50px;
+  text-align: center;
+}
+
+#London {background-color:red;}
+#Paris {background-color:green;}
+#Tokyo {background-color:blue;}
+#Oslo {background-color:orange;}
                 </div>
             </div>
             <div class="panel-wrapper">
-                <div id="css">
-                    /*predefined CSS, but editable*/ .tablink { background-color: #555; color: white; float: left; border: none; outline: none; cursor: pointer; padding: 14px 16px; font-size: 17px; width: 25%; } /* Change background color of buttons on hover */ .tablink:hover
-                    { background-color: #777; } /* Set default styles for tab content */ .tabcontent { color: white; display: none; padding: 50px; text-align: center; } /* Style each tab content individually */ #London {background-color:red;} #Paris {background-color:green;}
-                    #Tokyo {background-color:blue;} #Oslo {background-color:orange;}
-                </div>
-            </div>
-            <div class="panel-wrapper">
-                <div id="js">
-                    //predefined JavaScript, but editable function openCity(cityName, elmnt, color) { // Hide all elements with class="tabcontent" by default */ var i, tabcontent, tablinks; tabcontent = document.getElementsByClassName("tabcontent"); for (i = 0; i
-                    <
-                        tabcontent.length; i++) { tabcontent[i].style.display="none" ; } // Remove the background color of all tablinks/buttons tablinks=d ocument.getElementsByClassName( "tablink"); for (i=0 ; i < tablinks.length; i++) { tablinks[i].style.backgroundColor=""
-                        ; } // Show the specific tab content document.getElementById(cityName).style.display="block" ; // Add the specific color to the button used to open the tab content elmnt.style.backgroundColor=c olor; } // Get the element with id="defaultOpen"
-                        and click on it document.getElementById( "defaultOpen").click(); </div>
+                <div id="js">//predefined JavaScript, but editable 
+function openCity(cityName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(cityName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+
+}
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</div>
                 </div>
                 <div class="panel-wrapper">
                     <iframe id="result"></iframe>
