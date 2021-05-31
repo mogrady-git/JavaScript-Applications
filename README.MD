@@ -6,7 +6,7 @@ Explore the Projects using the Website Portal below and use back to return to th
 > HTML, CSS, JavaScript, jQuery.
 
 <p align="center">
-<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/mogrady-professional/JavaScript-Projects">
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/mogrady-git/JavaScript-Projects">
 <a href="https://mogrady-professional.github.io/JavaScript-Projects/index.html"><img alt="GitHub last commit" src="https://img.shields.io/badge/Version%201.0-Launch%20Website-green"></a>
 
   </p>
